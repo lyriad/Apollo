@@ -10,7 +10,7 @@
     <body>
         @include('core.header')
         <div id="wrapper">
-            @yield('app')
+            @yield('slot')
         </div>
         <livewire:scripts>
         <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
