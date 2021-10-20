@@ -17,6 +17,7 @@ Route::group([ 'namespace' => 'App\Http\Controllers' ], function () {
 
     Route::group([ 'prefix' => '/auth' ], function () {
         Route::view('/login', 'auth.login')->name('auth.login');
+        Route::get('/logout', 'AuthController@logout')->name('auth.logout');
     });
     
     Route::group([ 'prefix' => '/', 'middleware' => ['auth']], function ( ) {
