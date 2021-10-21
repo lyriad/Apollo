@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Observers\UserObserver;
 use App\Models\Patient;
 use App\Observers\PatientObserver;
+use App\Models\BPReading;
+use App\Observers\BPReadingObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         User::observe(UserObserver::class);
         Patient::observe(PatientObserver::class);
+        BPReading::observe(BPReadingObserver::class);
     }
 }

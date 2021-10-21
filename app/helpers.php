@@ -82,3 +82,35 @@ if (!function_exists('pounds_to_kilograms')) {
         return $pounds * 0.45359237;
     }
 }
+
+if (!function_exists('determine_bp_reading_category')) {
+
+    /**
+     * Function determine_bp_reading_category(int, int)
+     *
+     * Determines blood pressure category based on reading values.
+     *
+     * @param {int}   $systolic     Systolic blood pressure reading value.
+     * @param {int}   $diastolic    Diastolic blood pressure reading value.
+     *
+     * @return {string} Category of blood sample reading.
+     */
+    function determine_bp_reading_category(int $systolic, int $diastolic)
+    {
+        if ($systolic > 180 || $diastolic > 120) {
+            return 'hypertensive_crisis';
+        }
+        elseif ($systolic >= 140 || $diastolic >= 90) {
+            return 'high_s2';
+        }
+        elseif ($systolic >= 130 || $diastolic >= 80) {
+            return 'high_s1';
+        }
+        elseif ($systolic >= 120 && $diastolic < 80) {
+            return 'elevated';
+        }
+        else {
+            return 'normal';
+        }
+    }
+}

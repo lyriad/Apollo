@@ -31,6 +31,11 @@ class Patient extends Model
         'height_ft'
     ];
 
+    public function bpReadings() 
+    {
+        return $this->hasMany(BPReading::class);
+    }
+
     public function getAgeAttribute() {
         return $this->birthdate->age;
     }
