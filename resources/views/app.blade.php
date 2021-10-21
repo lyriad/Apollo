@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
         <link rel="icon" href="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" type="image/svg">
         <livewire:styles>
+        <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
     </head>
     <body>
         @auth
