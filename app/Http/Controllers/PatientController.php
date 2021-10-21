@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PatientRepository;
+
 class PatientController extends Controller 
 {
     public function index() 
@@ -11,6 +13,18 @@ class PatientController extends Controller
 
     public function create() 
     {
-        return view('patients.index');
+        return view('patients.form', [
+            'patient_id' => -1
+        ]);
+    }
+
+    public function update(string $hid) 
+    {
+        abort_if(!PatientRepository::existsByHid($hid), 404);
+        $patient_id = PatientRepository::findIdByHid($hid);
+
+        return view('patients.form', [
+            'patient_id' => $patient_id
+        ]);
     }
 }

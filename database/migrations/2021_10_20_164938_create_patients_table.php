@@ -16,12 +16,12 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('hid')->nullable();
-            $table->string('name'); 
-            $table->datetime('birthdate');
+            $table->string('name');
+            $table->datetime('birthdate')->nullable();
             $table->string('gender');
-            $table->float('weight_kg')->default(0);
-            $table->float('height_cm')->default(0);
-            $table->string('observations', 400);
+            $table->float('weight_kg')->nullable()->default(0);
+            $table->float('height_cm')->nullable()->default(0);
+            $table->string('observations', 400)->nullable();
             $table->timestamps();
         });
     }
