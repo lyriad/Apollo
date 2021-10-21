@@ -20,7 +20,16 @@ Route::group([ 'namespace' => 'App\Http\Controllers' ], function () {
         Route::get('/logout', 'AuthController@logout')->name('auth.logout');
     });
     
-    Route::group([ 'prefix' => '/', 'middleware' => ['auth']], function ( ) {
+    Route::group([ 'prefix' => '/', 'middleware' => ['auth'] ], function () {
         Route::get('/', 'HomeController@index')->name('home');
+
+        Route::group([ 'prefix' => '/patients' ], function () {
+            Route::get('/', 'PatientController@index')->name('patients.index');
+            Route::get('/create', 'PatientController@create')->name('patients.create');
+        });
+
+        Route::group([ 'prefix' => '/bpreading' ], function () {
+            Route::get('/', 'HomeController@index')->name('bpreading.index');
+        });
     });
 });

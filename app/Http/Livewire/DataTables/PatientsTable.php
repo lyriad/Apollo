@@ -28,12 +28,12 @@ class PatientsTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('Name', 'name')->searchable(),
+            Column::make('Name', 'name')->searchable()->sortable(),
             Column::make('Birthdate', 'birthdate')->format(fn ($value) => $value->format('m/d/Y')),
             Column::make('Age', 'age'),
             Column::make('Gender', 'gender')->format(fn ($value) => ucfirst($value)),
-            Column::make('WWeight (Kg)', 'weight_kg'),
-            Column::make('Height (Cm)', 'height_cm'),
+            Column::make('Weight (Kg)', 'weight_kg')->sortable(),
+            Column::make('Height (Cm)', 'height_cm')->sortable(),
         ];
     }
 

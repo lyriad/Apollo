@@ -26,8 +26,10 @@
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
-                        <a href="{{route('home')}}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                            aria-current="page">Home</a>
+                        <a href="{{route('home')}}" class="{{Route::currentRouteName() == 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">Home</a>
+
+                        <a href="{{route('patients.index')}}" class="{{Route::currentRouteName() == 'patients.index' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">Patients</a>
+                        <a href="{{route('bpreading.index')}}" class="{{Route::currentRouteName() == 'bpreading.index' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">BP Readings</a>
                     </div>
                 </div>
             </div>
@@ -37,9 +39,8 @@
                 </div>
                 <a href="{{route('auth.logout')}}" class="bg-gray-800 ml-3 p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <span class="sr-only">Logout</span>
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.25 22.5009H1.50002V1.50096H11.25C11.664 1.50096 12 1.16493 12 0.750979C12 0.337025 11.6639 0.001 11.25 0.001H0.749979C0.336025 0.001 0 0.336963 0 0.750979V23.2509C0 23.6649 0.336025 24.0009 0.749979 24.0009H11.2499C11.6639 24.0009 11.9999 23.6648 11.9999 23.2509C12 22.8369 11.6639 22.5009 11.25 22.5009Z" fill="currentColor"/>
-                        <path d="M23.7824 11.4765L18.6075 6.22726C18.3142 5.93101 17.8395 5.93176 17.5469 6.22726C17.2537 6.52276 17.2537 7.00274 17.5469 7.29824L21.447 11.2545H6.00227C5.58825 11.2545 5.25229 11.5935 5.25229 12.012C5.25229 12.4305 5.58831 12.7695 6.00227 12.7695H21.447L17.5469 16.7258C17.2537 17.022 17.2537 17.5013 17.5469 17.7968C17.8402 18.093 18.3149 18.093 18.6075 17.7968L23.7817 12.5475C24.0712 12.2558 24.0742 11.7675 23.7824 11.4765Z" fill="currentColor"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
                 </a>
             </div>
@@ -48,10 +49,9 @@
 
     <div class="sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="{{route('home')}}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                aria-current="page">Home</a>
+            <a href="{{route('home')}}" class="{{Route::currentRouteName() == 'home' ? 'bg-gray-900' : ''}} text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
 
-            {{-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a> --}}
+            <a href="{{route('patients.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a>
         </div>
     </div>
 </nav>
