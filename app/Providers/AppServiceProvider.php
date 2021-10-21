@@ -5,8 +5,10 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
-use App\Observers\UserObserver;
 use App\Models\User;
+use App\Observers\UserObserver;
+use App\Models\Patient;
+use App\Observers\PatientObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         User::observe(UserObserver::class);
+        Patient::observe(PatientObserver::class);
     }
 }
