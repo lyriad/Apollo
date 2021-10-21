@@ -29,9 +29,9 @@ class PatientsTable extends DataTableComponent
     {
         return [
             Column::make('Name', 'name')->searchable(),
-            Column::make('Birthdate', 'birthdate'),
+            Column::make('Birthdate', 'birthdate')->format(fn ($value) => $value->format('m/d/Y')),
             Column::make('Age', 'age'),
-            Column::make('Gender', 'gender'),
+            Column::make('Gender', 'gender')->format(fn ($value) => ucfirst($value)),
             Column::make('WWeight (Kg)', 'weight_kg'),
             Column::make('Height (Cm)', 'height_cm'),
         ];
