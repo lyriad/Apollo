@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
         echo "Total time: {$end->diffForHumans($start)}.\n";
 
         // 1st Run: 18 minutes
+        // 2nd Run: 19 minutes
     }
 }
