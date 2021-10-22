@@ -44,25 +44,20 @@ class Form extends Component
             'observations' => 'nullable|max:400'
         ]);
 
+        $data = [
+            'name' => $this->name,
+            'birthdate' => $this->birthdate,
+            'gender' => $this->gender,
+            'weight_kg' => $this->weight,
+            'height_cm' => $this->height,
+            'observations' => $this->observations
+        ];
+
         if ($this->patient) {
-            PatientRepository::updateById($this->patient->id, [
-                'name' => $this->name,
-                'birthdate' => isset($this->birthdate) ? $this->birthdate : $this->patient->birthdate,
-                'gender' => $this->gender,
-                'weight_kg' => $this->weight > 0 ? $this->weight : $this->patient->weight_kg,
-                'height_cm' => $this->height > 0 ? $this->height : $this->patient->height_cm,
-                'observations' => $this->observations
-            ]);
-        }
-        else {
-            $patient = PatientRepository::create([
-                'name' => $this->name,
-                'birthdate' => $this->birthdate,
-                'gender' => $this->gender,
-                'weight_kg' => $this->weight,
-                'height_cm' => $this->height,
-                'observations' => $this->observations
-            ]);
+            PatientRepository::updateById($this->patient->id, $data);
+
+        } else {
+            $patient = PatientRepository::create($data);
 
             return redirect()->route('patients.update', [
                 'hid' => $patient->hid
