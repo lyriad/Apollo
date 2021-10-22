@@ -4,7 +4,7 @@
 Apollo is a tool for nurses to record patient's blood sample readings.
 
 ## Requirements
----
+
 * [PHP](https://www.php.net/downloads.php) ^7.4
 * [Composer](https://getcomposer.org/download/)
 * [NodeJS](https://nodejs.org/en/download/) ^11.x
@@ -18,7 +18,7 @@ Apollo is a tool for nurses to record patient's blood sample readings.
 * pdo_mysql (Optional)
 
 ## Installation
----
+
 Clone the repository and enter the project folder.
 ```bash
   git clone https://github.com/lyriad/Apollo.git
