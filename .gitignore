@@ -11,7 +11,7 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
+./tailwind-safelist.txt
 public/mix-manifest.json
 public/js/app.js
 public/css/app.css
