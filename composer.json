@@ -14,8 +14,7 @@
         "livewire/livewire": "^2.7",
         "maatwebsite/excel": "^3.1",
         "phpoffice/phpspreadsheet": "^1.18",
-        "rappasoft/laravel-livewire-tables": "^1.19",
-        "vinkla/hashids": "^9.1"
+        "rappasoft/laravel-livewire-tables": "^1.19"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
