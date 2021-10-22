@@ -29,9 +29,9 @@ class PatientsTable extends DataTableComponent
     {
         return [
             Column::make('Name', 'name')->searchable()->sortable(),
-            Column::make('Birthdate', 'birthdate')->format(fn ($value) => $value->format('m/d/Y')),
+            Column::make('Birthdate', 'birthdate'),
             Column::make('Age', 'age'),
-            Column::make('Gender', 'gender')->format(fn ($value) => ucfirst($value)),
+            Column::make('Gender', 'gender'),
             Column::make('Weight (Kg)', 'weight_kg')->sortable(),
             Column::make('Height (Cm)', 'height_cm')->sortable(),
         ];
@@ -40,5 +40,10 @@ class PatientsTable extends DataTableComponent
     public function query(): Builder
     {
         return Patient::query();
+    }
+
+    public function rowView(): string
+    {
+        return 'patients.data-table-row';
     }
 }

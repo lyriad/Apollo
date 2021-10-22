@@ -1,4 +1,4 @@
-<div class="p-5 md:mt-0 md:col-span-2">
+<div class="md:col-span-2">
     <div class="mb-3 flex justify-between">
         <h3 class="text-2xl font-bold">{!!isset($patient) ? "Patient Id: <span class=\"font-normal\">{$patient->hid}</span>" : 'Add new patient'!!}</h3>
     </div>

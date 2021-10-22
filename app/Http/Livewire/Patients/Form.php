@@ -15,9 +15,9 @@ class Form extends Component
     public $height;
     public $observations;
 
-    public function mount(int $patient_id) 
+    public function mount(string $patient_hid) 
     {
-        $this->patient = PatientRepository::firstById($patient_id);
+        $this->patient = PatientRepository::firstByHid($patient_hid);
 
         if (!$this->patient) return;
         $this->name = $this->patient->name;

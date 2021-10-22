@@ -98,7 +98,7 @@ if (!function_exists('determine_bp_reading_category')) {
     function determine_bp_reading_category(int $systolic, int $diastolic)
     {
         if ($systolic > 180 || $diastolic > 120) {
-            return 'hypertensive_crisis';
+            return 'crisis';
         }
         elseif ($systolic >= 140 || $diastolic >= 90) {
             return 'high_s2';
