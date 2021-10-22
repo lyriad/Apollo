@@ -7,18 +7,18 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-6">
                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" name="name" id="name" wire:model="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('name') ring-2 ring-offset-0 ring-red-500 @enderror">
+                    <input wire:model="name" id="name" name="name" type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('name') ring-2 ring-offset-0 ring-red-500 @enderror">
                     @error('name') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="birthdate" class="block text-sm font-medium text-gray-700">Birthdate</label>
-                    <input type="date" name="birthdate" id="birthdate" wire:model="birthdate"
+                    <input wire:model="birthdate" id="birthdate" name="birthdate" type="date"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('birthdate') ring-2 ring-offset-0 ring-red-500 @enderror">
                     @error('birthdate') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
-                    <select id="gender" name="gender" wire:model="gender"
+                    <select wire:model="gender" id="gender" name="gender"
                         class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @error('gender') ring-2 ring-offset-0 ring-red-500 @enderror">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -27,19 +27,19 @@
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="weight" class="block text-sm font-medium text-gray-700">Weight (Kg)</label>
-                    <input type="number" name="weight" id="weight" wire:model="weight" min="0.00" step="0.01"
+                    <input wire:model="weight" id="weight" name="weight" type="number" min="0.00" step="0.01"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('weight') ring-2 ring-offset-0 ring-red-500 @enderror">
                     @error('weight') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="height" class="block text-sm font-medium text-gray-700">Height (Cm)</label>
-                    <input type="number" name="height" id="height" wire:model="height" min="0.00" step="0.01"
+                    <input wire:model="height" id="height" name="height" type="number" min="0.00" step="0.01"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('height') ring-2 ring-offset-0 ring-red-500 @enderror">
                     @error('height') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-6">
                     <label for="observations" class="block text-sm font-medium text-gray-700">Observations</label>
-                    <textarea id="observations" name="observations" wire:model="observations" rows="5" class="shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md @error('observations') ring-2 ring-offset-0 ring-red-500 @enderror"></textarea>
+                    <textarea wire:model="observations" id="observations" name="observations" rows="5" class="shadow-sm resize-none focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md @error('observations') ring-2 ring-offset-0 ring-red-500 @enderror"></textarea>
                     @error('observations') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
             </div>

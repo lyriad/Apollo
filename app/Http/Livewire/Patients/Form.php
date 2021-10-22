@@ -36,7 +36,7 @@ class Form extends Component
     public function save() 
     {
         $this->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:10|max:191',
             'birthdate' => 'nullable|date|before_or_equal:today',
             'gender' => 'required|string|in:male,female',
             'weight' => 'nullable|numeric|min:0',
