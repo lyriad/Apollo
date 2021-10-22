@@ -34,6 +34,7 @@ class PatientsTable extends DataTableComponent
             Column::make('Gender', 'gender'),
             Column::make('Weight (Kg)', 'weight_kg')->sortable(),
             Column::make('Height (Cm)', 'height_cm')->sortable(),
+            Column::make('Last reading'),
         ];
     }
 

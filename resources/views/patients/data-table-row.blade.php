@@ -35,6 +35,14 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
+    <div class="whitespace-nowrap font-medium text-gray-700">
+        @if($row->bpReadings()->exists())
+        <x-bpreading-category :category="$row->bpReadings()->latest()->first()->category" />
+        @endif
+    </div>
+</x-livewire-tables::table.cell>
+
+<x-livewire-tables::table.cell>
     <a href="{{route('patients.update', [ 'hid' => $row->hid ])}}" class="bg-purple-100 text-purple-600 font-medium px-2 py-1 rounded-full hover:bg-purple-600 hover:text-purple-100">
         Manage
     </a>
