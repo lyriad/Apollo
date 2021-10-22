@@ -39,11 +39,11 @@ class PatientsExport implements FromCollection, WithHeadings, WithMapping
         return [
             $patient->id,
             $patient->name,
-            Date::dateTimeToExcel($patient->birthdate),
+            $patient->birthdate->format('m-d-Y'),
             ucfirst($patient->gender),
             $patient->weight_kg,
             $patient->height_cm,
-            Date::dateTimeToExcel($patient->created_at),
+            $patient->created_at->format('m-d-Y')
         ];
     }   
 }
