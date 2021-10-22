@@ -27,9 +27,7 @@
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <a href="{{route('home')}}" class="{{Route::currentRouteName() == 'home' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">Home</a>
-
                         <a href="{{route('patients.index')}}" class="{{Route::currentRouteName() == 'patients.index' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">Patients</a>
-                        <a href="{{route('bpreading.index')}}" class="{{Route::currentRouteName() == 'bpreading.index' ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}} block px-3 py-2 rounded-md text-base font-medium">BP Readings</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +48,6 @@
     <div class="sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="{{route('home')}}" class="{{Route::currentRouteName() == 'home' ? 'bg-gray-900' : ''}} text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
-
             <a href="{{route('patients.index')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patients</a>
         </div>
     </div>

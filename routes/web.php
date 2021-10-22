@@ -28,9 +28,5 @@ Route::group([ 'namespace' => 'App\Http\Controllers' ], function () {
             Route::get('/new', 'PatientController@create')->name('patients.create');
             Route::get('/{hid}', 'PatientController@update')->name('patients.update');
         });
-
-        Route::group([ 'prefix' => '/bpreading' ], function () {
-            Route::get('/', 'HomeController@index')->name('bpreading.index');
-        });
     });
 });
