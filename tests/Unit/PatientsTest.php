@@ -4,6 +4,7 @@ namespace Tests\Unit\Modules;
 
 use App\Models\Patient;
 use App\Http\Livewire\Patients\Form as PatientsForm;
+use App\Http\Livewire\DataTables\PatientsTable;
 use function Tests\userLogin;
 use function Pest\Faker\faker;
 use function Pest\Livewire\livewire;
@@ -36,10 +37,25 @@ test('Can\'t register patient with empty dataset', function () {
         ]);
 });
 
+test('Can\'t register patient without name', function () {
+
+    livewire(PatientsForm::class, ['patient_hid' => ''])
+        ->set('birthdate', faker()->date())
+        ->set('gender', ['male', 'female'][rand(0, 1)])
+        ->set('weight', faker()->numberBetween(70, 300))
+        ->set('height', faker()->numberBetween(120, 190))
+        ->set('observations', faker()->text(100))
+        ->call('save')
+        ->assertHasErrors([
+            'name' => ['required'],
+        ]);
+});
+
 test('Can\'t register patient with extremely long name', function () {
 
     livewire(PatientsForm::class, ['patient_hid' => ''])
         ->set('name', faker()->text(400))
+        ->set('birthdate', faker()->date())
         ->set('gender', ['male', 'female'][rand(0, 1)])
         ->set('weight', faker()->numberBetween(70, 300))
         ->set('height', faker()->numberBetween(120, 190))
@@ -54,26 +70,38 @@ test('Can\'t register patient with invalid data', function () {
 
     livewire(PatientsForm::class, ['patient_hid' => ''])
         ->set('name', faker()->name())
-        ->set('birthdate', 'aa-aa-aaaa')
+        ->set('birthdate', 'riwgowbf')
         ->set('gender', 'test')
-        ->set('weight', -1)
-        ->set('height', -1)
+        ->set('weight', '2d98h')
+        ->set('height', -15324)
         ->set('observations', '')
         ->call('save')
         ->assertHasErrors([
             'birthdate' => ['date'],
             'gender' => ['in'],
-            'weight' => ['min'],
+            'weight' => ['numeric'],
             'height' => ['min'],
         ]);
 });
 
-test('Can register patient', function () {
+test('Can register patient only with name', function () {
 
     $name = (faker()->name() . ' - ' . faker()->uuid());
 
     livewire(PatientsForm::class, ['patient_hid' => ''])
         ->set('name', $name)
+        ->call('save')
+        ->assertHasNoErrors();
+
+    $this->assertTrue(Patient::where('name', $name)->exists());
+});
+
+test('Can register patient', function () {
+
+
+    livewire(PatientsForm::class, ['patient_hid' => ''])
+        ->set('name', 'Test Patient No.1')
+        ->set('birthdate', faker()->date())
         ->set('gender', ['male', 'female'][rand(0, 1)])
         ->set('weight', faker()->numberBetween(70, 300))
         ->set('height', faker()->numberBetween(120, 190))
@@ -81,5 +109,19 @@ test('Can register patient', function () {
         ->call('save')
         ->assertHasNoErrors();
 
-    $this->assertTrue(Patient::where('name', $name)->exists());
+    $this->assertTrue(Patient::where('name', 'Test Patient No.1')->exists());
+});
+
+test('Patient shows in datatable component', function () {
+
+    livewire(PatientsTable::class)
+        ->set('filters.search', 'Test Patient No.1')
+        ->assertSee('Test Patient No.1');
+});
+
+test('Filter works correctly in datatable component', function () {
+
+    livewire(PatientsTable::class)
+        ->set('filters.search', 'Test Patient No.1')
+        ->assertSee('Test Patient No.1');
 });

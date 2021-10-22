@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
 
         // 1st Run: 18 minutes
         // 2nd Run: 19 minutes
+        // 3rd Run: 16 minutes
     }
 }
