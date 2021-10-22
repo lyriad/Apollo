@@ -29,7 +29,7 @@
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
-    <a href="{{route('patients.update', [ 'hid' => $row->hid ])}}" class="bg-purple-100 text-purple-600 font-medium px-2 py-1 rounded-full hover:bg-purple-600 hover:text-purple-100">
+    <button wire:click="$emit('bpreading-form-open', '{{$row->hid}}')" class="bg-purple-100 text-purple-600 font-medium px-2 py-1 rounded-full hover:bg-purple-600 hover:text-purple-100">
         Manage
-    </a>
+    </button>
 </x-livewire-tables::table.cell>

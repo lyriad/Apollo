@@ -15,6 +15,11 @@ class BPReadingTable extends DataTableComponent
 
     protected string $pageName = 'readings';
     protected string $tableName = 'readings';
+    
+    protected $listeners = [
+        'refreshDatatable' => '$refresh',
+        'bpreadings-table-reset' => 'resetAll'
+    ];
 
     public function columns(): array
     {

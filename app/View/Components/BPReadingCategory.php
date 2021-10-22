@@ -30,7 +30,7 @@ class BPReadingCategory extends Component
             case 'lg':
                 $this->px = 5;
                 $this->py = 3;
-                $this->rounded = 'rounded-md';
+                $this->rounded = 'w-full rounded-md';
                 break;
         }
 
@@ -59,7 +59,7 @@ class BPReadingCategory extends Component
                 $this->category = 'High Stage 2';
                 break;
 
-            case 'high_s2':
+            case 'crisis':
                 $this->text_color = 'text-white';
                 $this->bg_color = 'bg-red-700';
                 $this->category = 'Hypertensive Crisis';
