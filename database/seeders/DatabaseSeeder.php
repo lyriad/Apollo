@@ -17,11 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        if (!UserRepository::existsByEmail('manueleduardo0320@gmail.com')) {
+        if (!UserRepository::existsByEmail('nurse1@apollo.com')) {
             UserRepository::create([
-                'name' => 'Manuel Espinal',
-                'email' => 'manueleduardo0320@gmail.com',
+                'name' => 'Test Nurse 1',
+                'email' => 'nurse1@apollo.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
                 'remember_token' => Str::random(10)
