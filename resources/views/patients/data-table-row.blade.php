@@ -6,13 +6,13 @@
 
 <x-livewire-tables::table.cell>
     <div class="whitespace-nowrap font-medium text-gray-700">
-        {{$row->birthdate->format('m/d/Y')}}
+        {{is_null($row->birthdate) ? '-' : $row->birthdate->format('m/d/Y')}}
     </div>
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
     <div class="whitespace-nowrap font-medium text-gray-700">
-        {{$row->age}}
+        {{is_null($row->birthdate) ? '-' : $row->age}}
     </div>
 </x-livewire-tables::table.cell>
 
@@ -24,13 +24,13 @@
 
 <x-livewire-tables::table.cell>
     <div class="whitespace-nowrap font-medium ext-gray-700">
-        {{$row->weight_kg}}
+        {{$row->weight_kg <= 0 ? '-' : $row->weight_kg}}
     </div>
 </x-livewire-tables::table.cell>
 
 <x-livewire-tables::table.cell>
     <div class="whitespace-nowrap font-medium text-gray-700">
-        {{$row->height_cm}}
+        {{$row->height_cm <= 0 ? '-' : $row->height_cm}}
     </div>
 </x-livewire-tables::table.cell>
 
