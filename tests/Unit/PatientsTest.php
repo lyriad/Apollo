@@ -4,7 +4,7 @@ namespace Tests\Unit\Modules;
 
 use App\Models\Patient;
 use App\Http\Livewire\Patients\Form as PatientsForm;
-use App\Http\Livewire\DataTables\PatientsTable;
+use App\Http\Livewire\Patients\DataTable as PatientsTable;
 use function Tests\userLogin;
 use function Pest\Faker\faker;
 use function Pest\Livewire\livewire;

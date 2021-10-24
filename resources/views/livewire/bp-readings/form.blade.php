@@ -11,13 +11,13 @@
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                         <label for="systolic" class="block text-sm font-medium text-gray-700">Systolic value</label>
-                        <input type="number" name="systolic" id="systolic" wire:model.debounce.250ms="systolic" min="0"
+                        <input wire:model.debounce.250ms="systolic" id="systolic" name="systolic" type="number" min="0"
                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('systolic') ring-2 ring-offset-0 ring-red-500 @enderror">
                         @error('systolic') <x-error-msg :message="$message"></x-error-msg> @enderror
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="diastolic" class="block text-sm font-medium text-gray-700">Diastolic value</label>
-                        <input type="number" name="diastolic" id="diastolic" wire:model.debounce.250ms="diastolic" min="0"
+                        <input wire:model.debounce.250ms="diastolic" id="diastolic" name="diastolic" type="number" min="0"
                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('diastolic') ring-2 ring-offset-0 ring-red-500 @enderror">
                         @error('diastolic') <x-error-msg :message="$message"></x-error-msg> @enderror
                     </div>
