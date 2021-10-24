@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\DataTables;
+namespace App\Http\Livewire\Patients;
 
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Excel;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Patient;
 
-class PatientsTable extends DataTableComponent
+class DataTable extends DataTableComponent
 {
     public string $primaryKey = 'hid';
 

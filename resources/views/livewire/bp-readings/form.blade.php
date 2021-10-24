@@ -27,6 +27,9 @@
                     <div class="col-span-6">
                         <p class="font-medium text-center">Taken {{$date->format('M d, Y');}}</p>
                     </div>
+                    <div class="col-span-6">
+                        @error('patient_hid') <x-error-msg :message="$message"></x-error-msg> @enderror
+                    </div>
                 </div>
             </div>
             <div class="bg-gray-50 py-3 sm:px-6 sm:flex sm:justify-end">

@@ -3,7 +3,7 @@
 <div class="p-0 md:p-30 sm:p-10">
     <livewire:patients.form :patient_hid="$patient_hid" />
     @if(!empty($patient_hid))
-    <livewire:b-p-reading.form :patient_hid="$patient_hid" />
+    <livewire:b-p-readings.form :patient_hid="$patient_hid" />
     <div id="patients-table-container" class="mt-10">
         <div class="mb-3 flex justify-between">
             <h2 class="text-2xl font-bold">Blood pressure readings</h2>
@@ -17,7 +17,7 @@
                 Add new
             </button>
         </div>
-        <livewire:data-tables.b-p-reading-table :patient_hid="$patient_hid" />
+        <livewire:b-p-readings.data-table :patient_hid="$patient_hid" />
     </div>
     @endif
 </div>

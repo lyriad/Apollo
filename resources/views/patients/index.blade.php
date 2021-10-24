@@ -10,6 +10,6 @@
             Add new
           </a>
     </div>
-    <livewire:data-tables.patients-table />
+    <livewire:patients.data-table />
 </div>
 @endsection

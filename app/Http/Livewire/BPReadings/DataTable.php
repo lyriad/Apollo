@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\DataTables;
+namespace App\Http\Livewire\BPReadings;
 
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -8,7 +8,7 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Repositories\PatientRepository;
 use App\Models\BPReading;
 
-class BPReadingTable extends DataTableComponent
+class DataTable extends DataTableComponent
 {
     public string $patient_hid;
     public string $primaryKey = 'hid';

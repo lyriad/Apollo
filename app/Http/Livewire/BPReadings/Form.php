@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\BPReading;
+namespace App\Http\Livewire\BPReadings;
 
 use Livewire\Component;
 use App\Repositories\PatientRepository;
@@ -24,11 +24,13 @@ class Form extends Component
     ];
 
     protected $rules = [
+        'patient_hid' => 'required|exists:patients,hid',
         'systolic' => 'required|integer|min:0|gt:diastolic',
         'diastolic' => 'required|integer|min:0|lt:systolic',
     ];
 
     protected $messages = [
+        'patient_hid.exists' => 'The patient could not be found.',
         'systolic.gt' => 'The systolic must be higher than the diastolic.',
         'diastolic.lt' => 'The diastolic must be lower than the systolic.',
     ];
@@ -63,6 +65,7 @@ class Form extends Component
         $this->diastolic = 0;
         $this->category = 'normal';
         $this->date = now();
+        $this->resetValidation();
         $this->is_open = false;
     }
 
@@ -90,6 +93,7 @@ class Form extends Component
 
     public function mount(string $patient_hid)
     {
+        abort_if(!PatientRepository::existsByHid($patient_hid), 404);
         $this->patient_hid = $patient_hid;
         $this->patient_name = PatientRepository::firstByHid($patient_hid, ['name'])->name;
         $this->date = now();
@@ -97,6 +101,6 @@ class Form extends Component
 
     public function render()
     {
-        return view('livewire.bp-reading.form');
+        return view('livewire.bp-readings.form');
     }
 }
