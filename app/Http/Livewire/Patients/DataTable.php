@@ -28,6 +28,7 @@ class DataTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('Id', 'hid')->searchable()->sortable(),
             Column::make('Name', 'name')->searchable()->sortable(),
             Column::make('Birthdate', 'birthdate'),
             Column::make('Age', 'age'),

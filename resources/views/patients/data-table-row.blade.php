@@ -1,5 +1,11 @@
 <x-livewire-tables::table.cell>
     <div class="whitespace-nowrap font-medium text-gray-700">
+        {{$row->hid}}
+    </div>
+</x-livewire-tables::table.cell>
+
+<x-livewire-tables::table.cell>
+    <div class="whitespace-nowrap font-medium text-gray-700">
         {{$row->name}}
     </div>
 </x-livewire-tables::table.cell>
