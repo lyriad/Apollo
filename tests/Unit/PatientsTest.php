@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Modules;
+namespace Tests\Unit;
 
 use App\Models\Patient;
 use App\Http\Livewire\Patients\Form as PatientsForm;

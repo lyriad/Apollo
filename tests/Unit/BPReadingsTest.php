@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Modules;
+namespace Tests\Unit;
 
 use App\Repositories\PatientRepository;
 use App\Http\Livewire\BPReadings\Form as BPReadingsForm;
