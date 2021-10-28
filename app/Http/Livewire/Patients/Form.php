@@ -15,6 +15,17 @@ class Form extends Component
     public $height;
     public $observations;
 
+    public $weight_unit = 'kg';
+
+    protected $rules = [
+        'name' => 'required|string|min:10|max:191',
+        'birthdate' => 'nullable|date|before_or_equal:today',
+        'gender' => 'required|string|in:male,female',
+        'weight' => 'nullable|numeric|min:0',
+        'height' => 'nullable|numeric|min:0',
+        'observations' => 'nullable|max:400'
+    ];
+
     public function mount(string $patient_hid) 
     {
         $this->patient = PatientRepository::firstByHid($patient_hid);
@@ -33,16 +44,27 @@ class Form extends Component
         return view('livewire.patients.form');
     }
 
+    public function toggleWeightUnit()
+    {
+        if ($this->weight_unit == 'kg')
+        {
+            $this->weight = kilograms_to_pounds($this->weight);
+            $this->weight_unit = 'lb';
+        }
+        else // $this->weight_unit == 'lb'
+        {
+            $this->weight = pounds_to_kilograms($this->weight);
+            $this->weight_unit = 'kg';
+        }
+    }
+
     public function save() 
     {
-        $this->validate([
-            'name' => 'required|string|min:10|max:191',
-            'birthdate' => 'nullable|date|before_or_equal:today',
-            'gender' => 'required|string|in:male,female',
-            'weight' => 'nullable|numeric|min:0',
-            'height' => 'nullable|numeric|min:0',
-            'observations' => 'nullable|max:400'
-        ]);
+        $this->validate();
+
+        if ($this->weight_unit == 'lb') {
+            $this->weight = pounds_to_kilograms($this->weight);
+        }
 
         $data = [
             'name' => $this->name,

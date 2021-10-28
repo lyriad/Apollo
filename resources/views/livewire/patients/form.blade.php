@@ -1,4 +1,4 @@
-<div class="md:col-span-2">
+<div class="md:col-span-2" x-data="{toggleWeight: false}">
     <div class="mb-3 flex justify-between">
         <h3 class="text-2xl font-bold">{!!isset($patient) ? "Patient Id: <span class=\"font-normal\">{$patient->hid}</span>" : 'Add new patient'!!}</h3>
     </div>
@@ -26,9 +26,18 @@
                     @error('gender') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-3">
-                    <label for="weight" class="block text-sm font-medium text-gray-700">Weight (Kg)</label>
-                    <input wire:model="weight" id="weight" name="weight" type="number" min="0.00" step="0.01"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('weight') ring-2 ring-offset-0 ring-red-500 @enderror">
+                    <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
+                    <div class="flex">
+                        <input wire:model="weight" id="weight" name="weight" type="number" min="0.00" step="0.01"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 inline-block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('weight') ring-2 ring-offset-0 ring-red-500 @enderror">
+                        <div class="flex justify-center items-center" wire:click="toggleWeightUnit">
+                            <div class="w-20 h-9 flex items-center bg-blue-700 rounded-md mx-3 px-1">
+                                <div class="bg-white w-8 h-7 rounded-md shadow-md transition transform text-center items-center {{$weight_unit == 'lb' ? 'translate-x-10' : ''}}">
+                                    <span class="text-sm font-medium text-gray-600">{{$weight_unit == 'lb' ? 'Lb' : 'Kg'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @error('weight') <x-error-msg :message="$message"></x-error-msg> @enderror
                 </div>
                 <div class="col-span-6 sm:col-span-3">

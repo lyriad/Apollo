@@ -13,11 +13,11 @@ if (!function_exists('centimeters_to_feet_and_inches')) {
      *
      * @return {string} String representation of distance in feet and inches.
      */
-    function centimeters_to_feet_and_inches(float $cm) {
-
-        $inches = round($cm * 0.393701);
-        $feet = intval($inches / 12);
-        $inches = $inches % 12;
+    function centimeters_to_feet_and_inches(float $cm)
+    {
+        $inches = $cm * 0.393701;
+        $feet = floor($inches / 12);
+        $inches = floor($inches % 12);
     
         return "{$feet}' {$inches}\"";
     }
@@ -34,8 +34,8 @@ if (!function_exists('feet_and_inches_to_centimeters')) {
      *
      * @return {float} Height in centimetres.
      */
-    function feet_and_inches_to_centimeters(string $feet_and_inches) {
-
+    function feet_and_inches_to_centimeters(string $feet_and_inches)
+    {
         $parts = explode(' ', $feet_and_inches);
 
         if (count($parts) != 2) {
@@ -45,41 +45,43 @@ if (!function_exists('feet_and_inches_to_centimeters')) {
         $cm = floatval($parts[0]) * 30.48;
         $cm += floatval($parts[1]) * 2.54;
 
-        return $cm;
+        return round($cm, 2);
     }
 }
 
 if (!function_exists('kilograms_to_pounds')) {
 
     /**
-     * Function kilograms_to_pounds(float)
+     * Function kilograms_to_pounds(mixed)
      *
      * Converts weight in kilograms to pounds.
      *
-     * @param {float}   $kg     Weight in kilograms.
+     * @param {mixed}   $kg     Weight in kilograms.
      *
      * @return {float} Weight in pounds.
      */
-    function kilograms_to_pounds(float $kg) {
-
-        return $kg * 2.20462262;
+    function kilograms_to_pounds(mixed $kg)
+    {
+        $kg = floatval($kg);
+        return round($kg * 2.20462262, 2);
     }
 }
 
 if (!function_exists('pounds_to_kilograms')) {
 
     /**
-     * Function pounds_to_kilograms(float)
+     * Function pounds_to_kilograms(mixed)
      *
      * Converts weight in pounds to kilograms.
      *
-     * @param {float}   $pounds     Weight in pounds.
+     * @param {mixed}   $pounds     Weight in pounds.
      *
      * @return {float} Weight in kilograms.
      */
-    function pounds_to_kilograms(float $pounds) {
-
-        return $pounds * 0.45359237;
+    function pounds_to_kilograms(mixed $pounds)
+    {
+        $pounds = floatval($pounds);
+        return round($pounds * 0.45359237, 2);
     }
 }
 
@@ -97,19 +99,24 @@ if (!function_exists('determine_bp_reading_category')) {
      */
     function determine_bp_reading_category(int $systolic, int $diastolic)
     {
-        if ($systolic > 180 || $diastolic > 120) {
+        if ($systolic > 180 || $diastolic > 120)
+        {
             return 'crisis';
         }
-        elseif ($systolic >= 140 || $diastolic >= 90) {
+        elseif ($systolic >= 140 || $diastolic >= 90)
+        {
             return 'high_s2';
         }
-        elseif ($systolic >= 130 || $diastolic >= 80) {
+        elseif ($systolic >= 130 || $diastolic >= 80)
+        {
             return 'high_s1';
         }
-        elseif ($systolic >= 120 && $diastolic < 80) {
+        elseif ($systolic >= 120 && $diastolic < 80)
+        {
             return 'elevated';
         }
-        else {
+        else
+        {
             return 'normal';
         }
     }
