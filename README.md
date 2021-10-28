@@ -1,7 +1,7 @@
 
 # Apollo
 
-Apollo is a tool for nurses to record patient's blood sample readings.
+Apollo is a tool for nurses to record patient's blood pressure readings.
 
 ## Requirements
 
